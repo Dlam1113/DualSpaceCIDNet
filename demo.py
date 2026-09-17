@@ -73,7 +73,7 @@ def main():
         out = out_pad[:, :, :h, :w].clamp(0, 1)
 
     save_image(out, args.output)
-    print(f"[√] Restoration completed! Saved to: {args.output}")
+    print(f"[OK] Restoration completed! Saved to: {args.output}")
 
 
 if __name__ == "__main__":
