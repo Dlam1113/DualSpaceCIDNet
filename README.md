@@ -52,16 +52,22 @@ python demo.py --input demo_images/input.png --output demo_images/output.png --w
 
 ## 📊 Benchmark Results
 
-Evaluated on the official **CDD-11 Adverse-Weather Benchmark** (2,200 testing image pairs across 11 single and composite degradation conditions):
+Evaluated on the **Combined Adverse-Weather Benchmark** (200 images comprising 100 rainy and 100 foggy scenes) reported in the manuscript:
 
-| Model | All-11 Average (PSNR / SSIM / LPIPS) | Triple-Composite (PSNR / SSIM / LPIPS) | Parameters | FLOPs (256x256) |
+### Quantitative Comparisons on Adverse-Weather Datasets
+
+| Method | Category | Combined (PSNR ↑ / SSIM ↑ / LPIPS ↓) | Rainy Subset (PSNR ↑ / SSIM ↑) | Foggy Subset (PSNR ↑ / SSIM ↑) |
 | :--- | :---: | :---: | :---: | :---: |
-| PromptIR | 25.24 / 0.8198 / 0.1620 | 22.01 / 0.7180 / 0.2310 | 35.59 M | 347.47 G |
-| NAFNet | 24.15 / 0.7944 / 0.2202 | 21.48 / 0.6774 / 0.3433 | 17.11 M | 32.44 G |
-| Baseline CIDNet | 24.78 / 0.8320 / 0.1450 | 22.26 / 0.7226 / 0.2286 | 1.84 M | 19.82 G |
-| **DualSpaceCIDNet (Ours)** | **24.53 / 0.8344 / 0.1442** | **22.40 / 0.7287 / 0.2261** | **2.02 M** | **21.01 G** |
+| NAFNet (2022) | All-in-One | 19.94 / 0.9025 / 0.1301 | 21.19 / 0.9205 | 18.68 / 0.8845 |
+| Histoformer (2024) | All-in-One | 23.79 / 0.9308 / 0.1025 | 25.67 / 0.9488 | 21.92 / 0.9128 |
+| PromptIR (2023) | All-in-One | 23.87 / 0.9175 / 0.1047 | 26.06 / 0.9375 | 21.68 / 0.8974 |
+| Restormer (2022) | All-in-One | 24.16 / 0.9196 / 0.1033 | 26.63 / 0.9422 | 21.69 / 0.8971 |
+| MoCE-IR (2025) | All-in-One | 25.14 / 0.9407 / 0.0855 | 26.83 / 0.9561 | 23.45 / 0.9253 |
+| Baseline CIDNet (2025) | Baseline | 25.43 / 0.9582 / 0.0550 | 26.47 / 0.9656 | 24.39 / 0.9508 |
+| AirNet (2022) | All-in-One | 26.43 / 0.9532 / 0.0648 | 28.10 / 0.9607 | 25.63 / 0.9336 |
+| **DualSpaceCIDNet (Ours)** | **Proposed** | **26.71 / 0.9609 / 0.0544** | **27.78 / 0.9685** | **25.64 / 0.9533** |
 
-*DualSpaceCIDNet achieves state-of-the-art restoration on extreme composite weather conditions while requiring only 2.02M parameters (5.7% of PromptIR).*
+*DualSpaceCIDNet achieves state-of-the-art overall restoration fidelity on the combined adverse-weather dataset, delivering the highest overall PSNR (26.71 dB), superior structural similarity (0.9609 SSIM), and the lowest perceptual error (0.0544 LPIPS).*
 
 ---
 
@@ -72,21 +78,7 @@ Evaluated on the official **CDD-11 Adverse-Weather Benchmark** (2,200 testing im
 
 ---
 
-## 📑 Citation
-
-If you find this work useful in your research, please cite:
-
-```bibtex
-@article{jin2026dualspacecidnet,
-  title   = {Cascaded Dual-Space Color-Illumination Decoupling Network with Neural Curve Adjustment for All-Weather Image Restoration},
-  author  = {Jin, Si-Nian and Bao, Junjun and Ju, Moran},
-  journal = {Neurocomputing},
-  year    = {2026}
-}
-```
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
